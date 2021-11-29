@@ -17,7 +17,7 @@ namespace Qubus\Inheritance;
 use function get_object_vars;
 use function is_array;
 
-trait Converter
+trait ConverterAware
 {
     /**
      * Takes an array and turns it into an object.
@@ -29,7 +29,7 @@ trait Converter
     {
         foreach ($array as $key => $value) {
             if (is_array($value)) {
-                $array[$key] = self::toObject($value);
+                $array[$key] = $this->toObject($value);
             }
         }
         return (object) $array;

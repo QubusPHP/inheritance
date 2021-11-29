@@ -16,9 +16,9 @@ namespace Qubus\Inheritance;
 
 use ReflectionClass;
 
-trait Multiton
+trait MultitonAware
 {
-    use StaticProxy;
+    use StaticProxyAware;
 
     public static function getInstance()
     {

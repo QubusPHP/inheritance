@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Qubus\Inheritance;
 
-trait SortCallback
+trait SortCallbackAware
 {
     /**
      * Protected callback function for the usort function.

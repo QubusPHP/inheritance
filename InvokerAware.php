@@ -14,6 +14,10 @@ declare(strict_types=1);
 
 namespace Qubus\Inheritance;
 
+use function call_user_func_array;
+use function ob_get_clean;
+use function ob_start;
+
 trait InvokerAware
 {
     /**
@@ -21,7 +25,6 @@ trait InvokerAware
      *
      * @param callable|Closure  $closure
      * @param array     $parameters
-     * @param bool      $buffer
      * @return mixed
      */
     public function call($closure, array $parameters = [], bool $buffer = false)

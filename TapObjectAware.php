@@ -23,7 +23,7 @@ trait TapObjectAware
      *
      * @param callable|null $callable
      */
-    protected function tap(?callable $callback = null): mixed
+    public function tap(?callable $callback = null): mixed
     {
         return tap($this, $callback);
     }

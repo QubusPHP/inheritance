@@ -12,11 +12,15 @@
     <arg value="p"/>
 
     <!-- Paths to check -->
+    <file>./Helpers</file>
+    <file>./Proxy</file>
     <file>./ConverterAware.php</file>
     <file>./InvokerAware.php</file>
     <file>./MultitonAware.php</file>
     <file>./SortCallbackAware.php</file>
     <file>./StaticProxyAware.php</file>
+    <file>./TapAware.php</file>
+    <file>./TapObjectAware.php</file>
 
     <!-- Additional QubusPHP Coding Standard rules. -->
 

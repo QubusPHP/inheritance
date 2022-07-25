@@ -23,7 +23,10 @@
     "autoload": {
         "psr-4": {
             "Qubus\\Inheritance\\": ""
-        }
+        },
+        "files": [
+            "Helpers/core.php"
+        ]
     },
     "scripts": {
         "cs-check": "phpcs",

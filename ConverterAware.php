@@ -4,10 +4,11 @@
  * Qubus\Inheritance
  *
  * @link       https://github.com/QubusPHP/inheritance
- * @copyright  2021 Joshua Parker <josh@joshuaparker.blog>
+ * @copyright  2022
+ * @author     Joshua Parker <josh@joshuaparker.blog>
  * @license    https://opensource.org/licenses/mit-license.php MIT License
  *
- * @since      1.0.0
+ * @since      2.0.1
  */
 
 declare(strict_types=1);
@@ -25,7 +26,7 @@ trait ConverterAware
      * @param array $array Array of data.
      * @return object
      */
-    public function toObject(array $array)
+    public function toObject(array $array): object
     {
         foreach ($array as $key => $value) {
             if (is_array($value)) {

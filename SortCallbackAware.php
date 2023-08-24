@@ -4,10 +4,11 @@
  * Qubus\Inheritance
  *
  * @link       https://github.com/QubusPHP/inheritance
- * @copyright  2021 Joshua Parker <josh@joshuaparker.blog>
+ * @copyright  2022
+ * @author     Joshua Parker <josh@joshuaparker.blog>
  * @license    https://opensource.org/licenses/mit-license.php MIT License
  *
- * @since      1.0.0
+ * @since      2.0.1
  */
 
 declare(strict_types=1);
@@ -21,9 +22,9 @@ trait SortCallbackAware
      *
      * @param array $a Action or Filter.
      * @param array $b Action or Filter.
-     * @return int Comparision
+     * @return int Comparison
      */
-    protected function afsort(array $a, array $b)
+    protected function afsort(array $a, array $b): int
     {
         if (isset($a['priority']) && isset($b['priority'])) {
             $priority1 = (int) $a['priority'];

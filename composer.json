@@ -15,12 +15,11 @@
     },
     "require": {
         "php": ">=8.2",
-        "qubus/event-dispatcher": "^1.1",
-        "qubus/exception": "^1.2"
+        "qubus/event-dispatcher": "^3",
+        "qubus/exception": "^3"
     },
     "require-dev": {
-        "qubus/qubus-coding-standard": "^1.1",
-        "squizlabs/php_codesniffer": "^3.5"
+        "qubus/qubus-coding-standard": "^1.1"
     },
     "autoload": {
         "psr-4": {

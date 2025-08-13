@@ -14,7 +14,9 @@
         "issues": "https://github.com/QubusPHP/inheritance/issues"
     },
     "require": {
-        "php": ">=8.2"
+        "php": ">=8.2",
+        "qubus/event-dispatcher": "^1.1",
+        "qubus/exception": "^1.2"
     },
     "require-dev": {
         "qubus/qubus-coding-standard": "^1.1",

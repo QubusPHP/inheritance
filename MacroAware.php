@@ -82,13 +82,13 @@ trait MacroAware
     /**
      * Dynamically handle calls to the class.
      *
-     * @param  string  $method
-     * @param  array  $parameters
+     * @param  string    $method
+     * @param  ...array  $parameters
      * @return mixed
      *
      * @throws BadMethodCallException
      */
-    public static function __callStatic(string $method, ...$parameters)
+    public static function __callStatic(string $method, $parameters)
     {
         if (! static::hasMacro($method)) {
             throw new BadMethodCallException(sprintf(
@@ -110,13 +110,13 @@ trait MacroAware
     /**
      * Dynamically handle calls to the class.
      *
-     * @param  string  $method
-     * @param  array  $parameters
+     * @param  string    $method
+     * @param  ...array  $parameters
      * @return mixed
      *
      * @throws BadMethodCallException
      */
-    public function __call(string $method, ...$parameters)
+    public function __call(string $method, $parameters)
     {
         if (! static::hasMacro($method)) {
             throw new BadMethodCallException(sprintf(

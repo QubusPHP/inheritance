@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Qubus\Inheritance;
 
 use Qubus\EventDispatcher\ActionFilter\Filter;
+use Qubus\Exception\Exception;
+use ReflectionException;
 
 trait FilterAware
 {
@@ -23,7 +25,11 @@ trait FilterAware
         return $this;
     }
 
-    protected function applyFilter(...$params): void
+    /**
+     * @throws ReflectionException
+     * @throws Exception
+     */
+    protected function applyFilter($params): void
     {
         if (! $this->useFilter) {
             return;

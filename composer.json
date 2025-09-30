@@ -14,12 +14,11 @@
         "issues": "https://github.com/QubusPHP/inheritance/issues"
     },
     "require": {
-        "php": ">=8.2",
-        "qubus/event-dispatcher": "^3",
-        "qubus/exception": "^3"
+        "php": ">=8.4",
+        "qubus/exception": "^4"
     },
     "require-dev": {
-        "qubus/qubus-coding-standard": "^1.1"
+        "qubus/qubus-coding-standard": "^2"
     },
     "autoload": {
         "psr-4": {
@@ -37,7 +36,8 @@
         "optimize-autoloader": true,
         "sort-packages": true,
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "pestphp/pest-plugin": true
         }
     }
 }

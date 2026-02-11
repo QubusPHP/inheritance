@@ -15,15 +15,12 @@ declare(strict_types=1);
 
 namespace Qubus\Inheritance;
 
-use ReflectionClass;
-use ReflectionException;
-
 trait MultitonAware
 {
     use StaticProxyAware;
 
     /**
-     * @throws ReflectionException
+     * @throws \ReflectionException
      */
     public static function getInstance()
     {
@@ -31,7 +28,7 @@ trait MultitonAware
     }
 
     /**
-     * @throws ReflectionException
+     * @throws \ReflectionException
      */
     public static function getNamedInstance($key = '__DEFAULT__')
     {
@@ -39,7 +36,7 @@ trait MultitonAware
             if (! static::$instance) {
                 static::$instance = [];
             }
-            static::$instance[$key] = (new ReflectionClass(static::class))
+            static::$instance[$key] = new \ReflectionClass(static::class)
                 ->newInstanceWithoutConstructor();
         }
 

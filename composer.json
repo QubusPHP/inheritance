@@ -18,14 +18,14 @@
         "qubus/exception": "^4"
     },
     "require-dev": {
-        "qubus/qubus-coding-standard": "^2"
+        "qubus/qubus-coding-standard": "^2.1.2"
     },
     "autoload": {
         "psr-4": {
-            "Qubus\\Inheritance\\": ""
+            "Qubus\\Inheritance\\": "src/"
         },
         "files": [
-            "Helpers/core.php"
+            "src/Helpers/core.php"
         ]
     },
     "scripts": {

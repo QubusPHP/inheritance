@@ -15,8 +15,6 @@ declare(strict_types=1);
 
 namespace Qubus\Inheritance;
 
-use Closure;
-
 use function call_user_func_array;
 use function ob_get_clean;
 use function ob_start;
@@ -26,12 +24,12 @@ trait InvokerAware
     /**
      * Call the given Closure with buffering support.
      *
-     * @param callable|Closure $closure
+     * @param callable|\Closure $closure
      * @param array $parameters
      * @param bool $buffer
      * @return mixed
      */
-    public function call(callable|Closure $closure, array $parameters = [], bool $buffer = false): mixed
+    public function call(callable|\Closure $closure, array $parameters = [], bool $buffer = false): mixed
     {
         if ($buffer) {
             ob_start();

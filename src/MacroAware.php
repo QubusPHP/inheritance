@@ -4,12 +4,6 @@ declare(strict_types=1);
 
 namespace Qubus\Inheritance;
 
-use BadMethodCallException;
-use Closure;
-use ReflectionClass;
-use ReflectionException;
-use ReflectionMethod;
-
 use function sprintf;
 
 trait MacroAware
@@ -43,12 +37,12 @@ trait MacroAware
      * @param  bool  $replace
      * @return void
      *
-     * @throws ReflectionException
+     * @throws \ReflectionException
      */
     public static function mixin(object $mixin, bool $replace = true): void
     {
-        $methods = (new ReflectionClass($mixin))->getMethods(
-            ReflectionMethod::IS_PUBLIC | ReflectionMethod::IS_PROTECTED
+        $methods = new \ReflectionClass($mixin)->getMethods(
+            \ReflectionMethod::IS_PUBLIC | \ReflectionMethod::IS_PROTECTED
         );
 
         foreach ($methods as $method) {
@@ -86,12 +80,12 @@ trait MacroAware
      * @param  ...array  $parameters
      * @return mixed
      *
-     * @throws BadMethodCallException
+     * @throws \BadMethodCallException
      */
     public static function __callStatic(string $method, $parameters)
     {
         if (! static::hasMacro($method)) {
-            throw new BadMethodCallException(sprintf(
+            throw new \BadMethodCallException(sprintf(
                 'Method %s::%s does not exist.',
                 static::class,
                 $method
@@ -100,7 +94,7 @@ trait MacroAware
 
         $macro = static::$macros[$method];
 
-        if ($macro instanceof Closure) {
+        if ($macro instanceof \Closure) {
             $macro = $macro->bindTo(null, static::class);
         }
 
@@ -114,12 +108,12 @@ trait MacroAware
      * @param  ...array  $parameters
      * @return mixed
      *
-     * @throws BadMethodCallException
+     * @throws \BadMethodCallException
      */
     public function __call(string $method, $parameters)
     {
         if (! static::hasMacro($method)) {
-            throw new BadMethodCallException(sprintf(
+            throw new \BadMethodCallException(sprintf(
                 'Method %s::%s does not exist.',
                 static::class,
                 $method
@@ -128,7 +122,7 @@ trait MacroAware
 
         $macro = static::$macros[$method];
 
-        if ($macro instanceof Closure) {
+        if ($macro instanceof \Closure) {
             $macro = $macro->bindTo($this, static::class);
         }
 

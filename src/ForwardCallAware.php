@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Qubus\Inheritance;
 
-use BadMethodCallException;
-use Error;
-
 use function get_class;
 use function preg_match;
 use function sprintf;
@@ -20,13 +17,13 @@ trait ForwardCallAware
      * @param string $method
      * @param array $parameters
      * @return mixed
-     * @throws BadMethodCallException
+     * @throws \BadMethodCallException
      */
     protected function forwardCallTo(mixed $object, string $method, array $parameters = []): mixed
     {
         try {
             return $object->{$method}(...$parameters);
-        } catch (Error | BadMethodCallException $e) {
+        } catch (\Error | \BadMethodCallException $e) {
             $pattern = '~^Call to undefined method (?P<class>[^:]+)::(?P<method>[^\(]+)\(\)$~';
 
             if (! preg_match($pattern, $e->getMessage(), $matches)) {
@@ -51,7 +48,7 @@ trait ForwardCallAware
      * @param string $method
      * @param array $parameters
      * @return mixed
-     * @throws BadMethodCallException
+     * @throws \BadMethodCallException
      */
     protected function forwardDecoratedCallTo(mixed $object, string $method, array $parameters = []): mixed
     {
@@ -65,11 +62,11 @@ trait ForwardCallAware
      *
      * @param  string  $method
      * @return never
-     * @throws BadMethodCallException
+     * @throws \BadMethodCallException
      */
     protected static function throwBadMethodCallException(string $method)
     {
-        throw new BadMethodCallException(sprintf(
+        throw new \BadMethodCallException(sprintf(
             'Call to undefined method %s::%s()',
             static::class,
             $method

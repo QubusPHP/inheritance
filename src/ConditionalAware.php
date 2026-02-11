@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Qubus\Inheritance;
 
-use Closure;
-
 trait ConditionalAware
 {
     /**
@@ -18,7 +16,7 @@ trait ConditionalAware
      */
     public function when(mixed $value = null, ?callable $callback = null, ?callable $default = null): mixed
     {
-        $value = $value instanceof Closure ? $value($this) : $value;
+        $value = $value instanceof \Closure ? $value($this) : $value;
 
         if ($value) {
             return $callback($this, $value) ?? $this;
@@ -39,7 +37,7 @@ trait ConditionalAware
      */
     public function whenNot(mixed $value = null, ?callable $callback = null, ?callable $default = null): mixed
     {
-        $value = $value instanceof Closure ? $value($this) : $value;
+        $value = $value instanceof \Closure ? $value($this) : $value;
 
         if (!$value) {
             return $callback($this, $value) ?? $this;

@@ -21,7 +21,7 @@ final class TapProxy
     {
     }
 
-    public function __call($method, $arguments): object
+    public function __call(mixed $method, mixed $arguments): object
     {
         $this->object->{$method}(...$arguments);
 

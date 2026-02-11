@@ -30,7 +30,8 @@
     },
     "scripts": {
         "cs-check": "phpcs",
-        "cs-fix": "phpcbf"
+        "cs-fix": "phpcbf",
+        "qubestan": "phpstan analyse -l 5 src"
     },
     "config": {
         "optimize-autoloader": true,
